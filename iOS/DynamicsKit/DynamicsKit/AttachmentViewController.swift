@@ -50,6 +50,7 @@ class AttachmentViewController: UIViewController {
             pushBehavior = UIPushBehavior(items: [cube], mode: .Instantaneous)
             pushBehavior.pushDirection = CGVectorMake(velocity.x, velocity.y)
             pushBehavior.magnitude = 5.0
+            pushBehavior.active = true
             animator.addBehavior(pushBehavior)
             break
         default:

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class GravityViewController: UIViewController {
+class GravityViewController: UIViewController, UICollisionBehaviorDelegate {
 
     var animator: UIDynamicAnimator!
 
     @IBOutlet var barriers: [UILabel]!
-    @IBOutlet weak var dynamicView: UILabel!
+    @IBOutlet weak var dynamicView: UIImageView!
 
     @IBOutlet weak var angul: UISlider!
     @IBOutlet weak var elas: UISlider!
@@ -40,21 +40,29 @@ class GravityViewController: UIViewController {
         let gravity = UIGravityBehavior(items: [dynamicView])
         animator.addBehavior(gravity)
 
-        //let collision = UICollisionBehavior(items: (barriers + [dynamicView]))
-        let collision = UICollisionBehavior(items: [dynamicView])
-        collision.addBoundaryWithIdentifier("barries1", forPath: UIBezierPath(rect: barriers[0].frame))
-        collision.addBoundaryWithIdentifier("barries2", forPath: UIBezierPath(rect: barriers[1].frame))
 
-
+        let collision = UICollisionBehavior(items: (barriers + [dynamicView]))
+        collision.addBoundaryWithIdentifier("barries1", forPath: UIBezierPath(rect: self.view.frame))
+        collision.translatesReferenceBoundsIntoBoundary = true
+        collision.collisionDelegate = self
 
         animator.addBehavior(collision)
     }
 
     @IBAction func refresh(sender: UITapGestureRecognizer) {
+
         animator.removeAllBehaviors()
         dynamicView.center = sender.locationInView(self.view)
         dynamicView.transform = CGAffineTransformIdentity;
 
         startAnumation()
+    }
+
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem, atPoint p: CGPoint) {
+
+    }
+
+    func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem) {
+        
     }
 }

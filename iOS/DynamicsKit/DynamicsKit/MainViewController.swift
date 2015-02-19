@@ -9,5 +9,10 @@
 import UIKit
 
 class MainViewController: UITableViewController {
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
 }
 
