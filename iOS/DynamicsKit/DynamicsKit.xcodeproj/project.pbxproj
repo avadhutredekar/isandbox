@@ -14,6 +14,8 @@
 		3A5901A31A8DF5F900B4DCFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5901A11A8DF5F900B4DCFE /* LaunchScreen.xib */; };
 		3A5901AF1A8DF5F900B4DCFE /* DynamicsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5901AE1A8DF5F900B4DCFE /* DynamicsKitTests.swift */; };
 		3A5901B91A8DF64F00B4DCFE /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5901B81A8DF64F00B4DCFE /* GravityViewController.swift */; };
+		3AAF9EC91A96089900971E18 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF9EC81A96089900971E18 /* Layout.swift */; };
+		3AAF9ECB1A9608C800971E18 /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF9ECA1A9608C800971E18 /* CollectionController.swift */; };
 		3AE9B5721A9340740090403A /* AttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9B5711A9340740090403A /* AttachmentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		3A5901AD1A8DF5F900B4DCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5901AE1A8DF5F900B4DCFE /* DynamicsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsKitTests.swift; sourceTree = "<group>"; };
 		3A5901B81A8DF64F00B4DCFE /* GravityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
+		3AAF9EC81A96089900971E18 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		3AAF9ECA1A9608C800971E18 /* CollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		3AE9B5711A9340740090403A /* AttachmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,8 @@
 				3A59019A1A8DF5F900B4DCFE /* MainViewController.swift */,
 				3A5901B81A8DF64F00B4DCFE /* GravityViewController.swift */,
 				3AE9B5711A9340740090403A /* AttachmentViewController.swift */,
+				3AAF9EC81A96089900971E18 /* Layout.swift */,
+				3AAF9ECA1A9608C800971E18 /* CollectionController.swift */,
 				3A59019C1A8DF5F900B4DCFE /* Main.storyboard */,
 				3A59019F1A8DF5F900B4DCFE /* Images.xcassets */,
 				3A5901A11A8DF5F900B4DCFE /* LaunchScreen.xib */,
@@ -219,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A59019B1A8DF5F900B4DCFE /* MainViewController.swift in Sources */,
+				3AAF9ECB1A9608C800971E18 /* CollectionController.swift in Sources */,
 				3AE9B5721A9340740090403A /* AttachmentViewController.swift in Sources */,
+				3AAF9EC91A96089900971E18 /* Layout.swift in Sources */,
 				3A5901991A8DF5F900B4DCFE /* AppDelegate.swift in Sources */,
 				3A5901B91A8DF64F00B4DCFE /* GravityViewController.swift in Sources */,
 			);

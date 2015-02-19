@@ -19,17 +19,12 @@ class AttachmentViewController: UIViewController {
     var dynamicSpring: UIDynamicItemBehavior!
     var attachmentSpring: UIAttachmentBehavior!
 
-    @IBOutlet weak var elasticity: UISlider!
+    @IBOutlet weak var magnitude: UISlider!
     @IBOutlet weak var density: UISlider!
-    @IBOutlet weak var friction: UISlider!
-    @IBOutlet weak var resistance: UISlider!
-    @IBOutlet weak var frequency: UISlider!
-    @IBOutlet weak var damping: UISlider!
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        spring.hidden = true
         animator = UIDynamicAnimator()
         startAnimation()
     }
@@ -49,8 +44,7 @@ class AttachmentViewController: UIViewController {
             }
             pushBehavior = UIPushBehavior(items: [cube], mode: .Instantaneous)
             pushBehavior.pushDirection = CGVectorMake(velocity.x, velocity.y)
-            pushBehavior.magnitude = 5.0
-            pushBehavior.active = true
+            pushBehavior.magnitude = CGFloat(magnitude.value)
             animator.addBehavior(pushBehavior)
             break
         default:
@@ -59,27 +53,17 @@ class AttachmentViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        dynamicSpring.elasticity = CGFloat(elasticity.value)
         dynamicSpring.density = CGFloat(density.value)
-        dynamicSpring.friction = CGFloat(friction.value)
-        dynamicSpring.resistance = CGFloat(resistance.value)
-
-        attachmentSpring.frequency = CGFloat(frequency.value)
-        attachmentSpring.damping = CGFloat(damping.value)
     }
 
     func startAnimation() {
 
         dynamicSpring = UIDynamicItemBehavior(items: [spring])
-        elasticity.value = Float(dynamicSpring.elasticity)
         density.value = Float(dynamicSpring.density)
-        friction.value = Float(dynamicSpring.friction)
-        resistance.value = Float(dynamicSpring.resistance)
         animator.addBehavior(dynamicSpring)
 
+
         attachmentSpring = UIAttachmentBehavior(item: spring, attachedToAnchor: platform.center)
-        frequency.value = Float(attachmentSpring.frequency)
-        damping.value = Float(attachmentSpring.damping)
         animator.addBehavior(attachmentSpring)
 
         let dynamicCube = UIDynamicItemBehavior(items: [cube])

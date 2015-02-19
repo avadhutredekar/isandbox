@@ -42,8 +42,7 @@ class GravityViewController: UIViewController, UICollisionBehaviorDelegate {
 
 
         let collision = UICollisionBehavior(items: (barriers + [dynamicView]))
-        collision.addBoundaryWithIdentifier("barries1", forPath: UIBezierPath(rect: self.view.frame))
-        collision.translatesReferenceBoundsIntoBoundary = true
+        collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: self.view.frame))
         collision.collisionDelegate = self
 
         animator.addBehavior(collision)
