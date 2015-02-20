@@ -2,7 +2,6 @@ package epam.com.takephoto;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -14,16 +13,33 @@ import com.android.volley.toolbox.Volley;
  */
 public class ImageLoader {
 
-    public static void setImageByUrl(Context context, String url, final ImageView imView) {
+    private Context context;
+    private RequestQueue queue;
+
+    public ImageLoader(Context context) {
+        this.context = context;
+    }
+
+    public void loadImageByUrl(String url, final ImageLoaderDelegate delegate) {
         RequestQueue queue = Volley.newRequestQueue(context);
-        ImageRequest ir = new ImageRequest(url,
+        ImageRequest request = new ImageRequest(url,
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {
-                        imView.setImageBitmap(response);
+                        if (delegate != null)
+                            delegate.finishLoad(response);
                     }
                 }, 0, 0, null, null);
-        queue.add(ir);
+        request.setTag(this);
+        queue.add(request);
         queue.start();
     }
+
+    public void cancel() {
+        queue.cancelAll(this);
+    }
+}
+
+interface ImageLoaderDelegate {
+    void finishLoad(Bitmap result);
 }
