@@ -14,10 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.ImageRequest;
-import com.android.volley.toolbox.Volley;
 import static android.view.ViewGroup.*;
 
 
@@ -82,7 +78,6 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
             relLayout.setVisibility(View.VISIBLE);
             setTitle(R.string.take_picture);
         }
-
     }
 
     @Override
@@ -94,39 +89,19 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == buttonUseVolley) {
-            RequestQueue queue = Volley.newRequestQueue(this);
-            ImageRequest ir = new ImageRequest(imageUrl,
-                    new Response.Listener<Bitmap>() {
-                @Override
-                public void onResponse(Bitmap response) {
-                    preview.setImageBitmap(response);
-                }
-            }, 0, 0, null, null);
-            queue.add(ir);
-            queue.start();
+            ImageLoader.setImageByUrl(this, imageUrl, preview);
         }
         else if (v == buttonTake || v == buttonRetake) {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(takePictureIntent, requestCameraCode);
         } else if (v == buttonUse) {
             relativeProgress.setVisibility(View.VISIBLE);
-            (new AsyncTask() {
+            Provider.startLoadData(new ProviderDelegate() {
                 @Override
-                protected Object doInBackground(Object[] params) {
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                }
-
-                @Override
-                protected void onPostExecute(Object o) {
-                    super.onPostExecute(o);
+                public void finishLoad(boolean result) {
                     relativeProgress.setVisibility(View.INVISIBLE);
                 }
-            }).execute();
+            });
         }
     }
 
