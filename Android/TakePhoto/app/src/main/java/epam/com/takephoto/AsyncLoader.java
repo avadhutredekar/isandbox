@@ -8,8 +8,7 @@ import android.util.Log;
  */
 public class AsyncLoader {
     private AsyncTask task;
-    public static final String EXCEPTION_TAG = "";
-    public static final String EXCEPTION_MSG = "";
+    public static final String EXCEPTION_TAG = AsyncLoader.class.getCanonicalName();
 
     public void startLoad(final AsyncLoaderDelegate delegate) {
         task = new AsyncTask() {
@@ -18,7 +17,7 @@ public class AsyncLoader {
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
-                    Log.e(EXCEPTION_TAG, EXCEPTION_MSG, e);
+                    Log.e(EXCEPTION_TAG, e.toString());
                     e.printStackTrace();
                 }
                 return null;

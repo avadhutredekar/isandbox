@@ -35,6 +35,9 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
     private ProgressBar progressBar;
     private RelativeLayout relativeProgress;
 
+    private ImageLoader imageLoader;
+    private AsyncLoader asyncLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +92,8 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == buttonUseVolley) {
-            (new ImageLoader(this)).loadImageByUrl(imageUrl, new ImageLoaderDelegate() {
+            imageLoader =  new ImageLoader(this);
+            imageLoader.loadImageByUrl(imageUrl, new ImageLoaderDelegate() {
                 @Override
                 public void finishLoad(Bitmap result) {
                     preview.setImageBitmap(result);
@@ -100,7 +104,8 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
             startActivityForResult(takePictureIntent, requestCameraCode);
         } else if (v == buttonUse) {
             relativeProgress.setVisibility(View.VISIBLE);
-            (new AsyncLoader()).startLoad(new AsyncLoaderDelegate() {
+            asyncLoader = new AsyncLoader();
+            asyncLoader.startLoad(new AsyncLoaderDelegate() {
                 @Override
                 public void finishLoad(Object result) {
                     relativeProgress.setVisibility(View.INVISIBLE);

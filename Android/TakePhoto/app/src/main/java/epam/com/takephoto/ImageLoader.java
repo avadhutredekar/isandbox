@@ -36,7 +36,8 @@ public class ImageLoader {
     }
 
     public void cancel() {
-        queue.cancelAll(this);
+        if (queue != null)
+            queue.cancelAll(this);
     }
 }
 
