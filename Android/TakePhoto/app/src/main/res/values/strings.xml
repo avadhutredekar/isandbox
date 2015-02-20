@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TakePhoto</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_take_photo">TakePhoto</string>
+    <string name="first_photo_text">Application Aware Connectivity</string>
+    <string name="second_photo_text">Consumer Engagement with ABC</string>
+    <string name="take_picture">TAKE A PICTURE</string>
+    <string name="preview">PREVIEW PICTURE</string>
+    <string name="back">Back</string>
+
+</resources>
