@@ -86,7 +86,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:elegantTextHeight="false"
             android:textSize="20sp" />
 
         <Button

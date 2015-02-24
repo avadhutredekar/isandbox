@@ -13,7 +13,7 @@ import com.android.volley.toolbox.Volley;
  */
 public class ImageLoader {
 
-    private Context mContext;
+    private final Context mContext;
     private RequestQueue mQueue;
 
     /**
