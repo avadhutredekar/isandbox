@@ -14,29 +14,28 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import static android.view.ViewGroup.*;
 
+/**
+ *
+ */
+public class TakePhoto extends ActionBarActivity implements View.OnClickListener {
+    private static final String IMAGE_URL = "http://zdorovnavek.ru/wp-content/uploads/2011/11/gates1.jpg";
+    private static final Integer REQUEST_CAMERA_CODE = 101;
 
-public class TakePhoto extends ActionBarActivity implements OnClickListener {
-    public static final String EXTRA_KEY = "TakePhoto:key";
-    public static final String folder = "/sdcard/TakePhoto/";
-    private static final String imageUrl = "http://zdorovnavek.ru/wp-content/uploads/2011/11/gates1.jpg";
-    private static final Integer requestCameraCode = 101;
+    private ImageView mPreview;
+    private TextView mTakePhotoText;
+    private Button mButtonTake;
+    private Button mButtonRetake;
+    private Button mButtonUse;
+    private Button mButtonBack;
+    private Button mButtonUseVolley;
+    private RelativeLayout mRelLayout;
+    private LinearLayout mLinLayout;
+    private ProgressBar mProgressBar;
+    private RelativeLayout mRelativeProgress;
 
-    private ImageView preview;
-    private TextView takePhotoText;
-    private Button buttonTake;
-    private Button buttonRetake;
-    private Button buttonUse;
-    private Button buttonBack;
-    private Button buttonUseVolley;
-    private RelativeLayout relLayout;
-    private LinearLayout linLayout;
-    private ProgressBar progressBar;
-    private RelativeLayout relativeProgress;
-
-    private ImageLoader imageLoader;
-    private AsyncLoader asyncLoader;
+    private ImageLoader mImageLoader;
+    private AsyncLoader mAsyncLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,41 +43,41 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
         setContentView(R.layout.activity_take_photo);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        preview = (ImageView) findViewById(R.id.preview);
-        takePhotoText = (TextView) findViewById(R.id.textView3);
-        relLayout = (RelativeLayout) findViewById(R.id.rel_take);
-        linLayout = (LinearLayout) findViewById(R.id.lin_take);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
-        relativeProgress = (RelativeLayout) findViewById(R.id.rel_progress);
-        relativeProgress.setVisibility(View.INVISIBLE);
+        mPreview = (ImageView) findViewById(R.id.preview);
+        mTakePhotoText = (TextView) findViewById(R.id.textView3);
+        mRelLayout = (RelativeLayout) findViewById(R.id.rel_take);
+        mLinLayout = (LinearLayout) findViewById(R.id.lin_take);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.VISIBLE);
+        mRelativeProgress = (RelativeLayout) findViewById(R.id.rel_progress);
+        mRelativeProgress.setVisibility(View.INVISIBLE);
 
-        buttonTake = (Button) findViewById(R.id.button_take);
-        buttonTake.setOnClickListener(this);
+        mButtonTake = (Button) findViewById(R.id.button_take);
+        mButtonTake.setOnClickListener(this);
 
-        buttonRetake = (Button) findViewById(R.id.button_retake);
-        buttonRetake.setOnClickListener(this);
+        mButtonRetake = (Button) findViewById(R.id.button_retake);
+        mButtonRetake.setOnClickListener(this);
 
-        buttonUse = (Button) findViewById(R.id.button_use);
-        buttonUse.setOnClickListener(this);
+        mButtonUse = (Button) findViewById(R.id.button_use);
+        mButtonUse.setOnClickListener(this);
 
-        buttonBack = (Button) findViewById(R.id.button2);
-        buttonBack.setOnClickListener(this);
+        mButtonBack = (Button) findViewById(R.id.button2);
+        mButtonBack.setOnClickListener(this);
 
-        buttonUseVolley = (Button) findViewById(R.id.button_volley);
-        buttonUseVolley.setOnClickListener(this);
+        mButtonUseVolley = (Button) findViewById(R.id.button_volley);
+        mButtonUseVolley.setOnClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (preview.getDrawable() != null) {
-            linLayout.setVisibility(View.VISIBLE);
-            relLayout.setVisibility(View.INVISIBLE);
+        if (mPreview.getDrawable() != null) {
+            mLinLayout.setVisibility(View.VISIBLE);
+            mRelLayout.setVisibility(View.INVISIBLE);
             setTitle(R.string.preview);
         } else {
-            linLayout.setVisibility(View.INVISIBLE);
-            relLayout.setVisibility(View.VISIBLE);
+            mLinLayout.setVisibility(View.INVISIBLE);
+            mRelLayout.setVisibility(View.VISIBLE);
             setTitle(R.string.take_picture);
         }
     }
@@ -91,24 +90,24 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v == buttonUseVolley) {
-            imageLoader =  new ImageLoader(this);
-            imageLoader.loadImageByUrl(imageUrl, new ImageLoaderDelegate() {
+        if (v == mButtonUseVolley) {
+            mImageLoader =  new ImageLoader(this);
+            mImageLoader.loadImageByUrl(IMAGE_URL, new ImageLoaderDelegate() {
                 @Override
                 public void finishLoad(Bitmap result) {
-                    preview.setImageBitmap(result);
+                    mPreview.setImageBitmap(result);
                 }
             });
-        } else if (v == buttonTake || v == buttonRetake) {
+        } else if (v == mButtonTake || v == mButtonRetake) {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(takePictureIntent, requestCameraCode);
-        } else if (v == buttonUse) {
-            relativeProgress.setVisibility(View.VISIBLE);
-            asyncLoader = new AsyncLoader();
-            asyncLoader.startLoad(new AsyncLoaderDelegate() {
+            startActivityForResult(takePictureIntent, REQUEST_CAMERA_CODE);
+        } else if (v == mButtonUse) {
+            mRelativeProgress.setVisibility(View.VISIBLE);
+            mAsyncLoader = new AsyncLoader();
+            mAsyncLoader.startLoad(new AsyncLoaderDelegate() {
                 @Override
                 public void finishLoad(Object result) {
-                    relativeProgress.setVisibility(View.INVISIBLE);
+                    mRelativeProgress.setVisibility(View.INVISIBLE);
                 }
             });
         }
@@ -117,9 +116,9 @@ public class TakePhoto extends ActionBarActivity implements OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == requestCameraCode && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CAMERA_CODE && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            preview.setImageBitmap(photo);
+            mPreview.setImageBitmap(photo);
         }
     }
 }

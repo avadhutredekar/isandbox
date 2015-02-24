@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 
+/**
+ * Entry point of the application
+ */
 public class MainActivity extends ActionBarActivity {
 
     @Override

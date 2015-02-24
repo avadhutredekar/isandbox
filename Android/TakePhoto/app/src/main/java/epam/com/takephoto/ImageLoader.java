@@ -13,34 +13,54 @@ import com.android.volley.toolbox.Volley;
  */
 public class ImageLoader {
 
-    private Context context;
-    private RequestQueue queue;
+    private Context mContext;
+    private RequestQueue mQueue;
 
+    /**
+     *
+     * @param context Activity context
+     */
     public ImageLoader(Context context) {
-        this.context = context;
+        this.mContext = context;
     }
 
+
+    /**
+     * Concurrent receiving Bitmap by url
+     * @param url Image url
+     * @param delegate Callback when loading will be finished
+     */
     public void loadImageByUrl(String url, final ImageLoaderDelegate delegate) {
-        RequestQueue queue = Volley.newRequestQueue(context);
+        mQueue = Volley.newRequestQueue(mContext);
         ImageRequest request = new ImageRequest(url,
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {
-                        if (delegate != null)
+                        if (delegate != null) {
                             delegate.finishLoad(response);
+                        }
                     }
                 }, 0, 0, null, null);
         request.setTag(this);
-        queue.add(request);
-        queue.start();
+        mQueue.add(request);
+        mQueue.start();
     }
 
+
+    /**
+     * Cancelling of loading
+     */
     public void cancel() {
-        if (queue != null)
-            queue.cancelAll(this);
+        if (mQueue != null) {
+            mQueue.cancelAll(this);
+        }
     }
 }
 
+
+/**
+ * Notification about finish of load
+ */
 interface ImageLoaderDelegate {
     void finishLoad(Bitmap result);
 }
