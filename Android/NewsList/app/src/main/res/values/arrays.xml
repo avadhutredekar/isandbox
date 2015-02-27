@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="model_source_types">
+        <item>Task 1 - Dynamic</item>
+        <item>Task 2 - JSON Parsing</item>
+        <item>Task 3 - Data from Network</item>
+    </string-array>
+
+</resources>

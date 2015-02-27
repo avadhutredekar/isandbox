@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NewsList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_task_1">Task 1</string>
+    <string name="action_task_2">Task 2</string>
+    <string name="action_task_3">Task 3</string>
+    <string name="description_example_1">
+        Tech giant Google has confirmed reports that it plans to move engineers out of its office in Russia.
+    </string>
+    <string name="description_example_2">
+        Short news
+    </string>
+
+</resources>
