@@ -19,11 +19,18 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button startPhotoActivity = (Button) findViewById(R.id.button);
-        startPhotoActivity.setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TakePhoto.class);
+                startActivity(intent);
+            }
+        });
+
+        ((Button) findViewById(R.id.button_recycler)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RecyclerViewActivity.class);
                 startActivity(intent);
             }
         });

@@ -10,5 +10,6 @@
     <string name="take_picture">TAKE A PICTURE</string>
     <string name="preview">PREVIEW PICTURE</string>
     <string name="back">Back</string>
+    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
 
 </resources>
