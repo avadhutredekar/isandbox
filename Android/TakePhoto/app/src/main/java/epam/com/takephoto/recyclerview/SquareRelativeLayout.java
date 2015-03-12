@@ -1,4 +1,4 @@
-package epam.com.takephoto;
+package epam.com.takephoto.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;

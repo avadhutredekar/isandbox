@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import epam.com.takephoto.recyclerview.RecyclerViewActivity;
+
 
 /**
  * Entry point of the application

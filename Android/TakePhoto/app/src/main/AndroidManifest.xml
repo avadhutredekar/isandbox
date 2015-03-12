@@ -35,7 +35,7 @@
             android:label="@string/title_activity_take_photo" >
         </activity>
         <activity
-            android:name=".RecyclerViewActivity"
+            android:name=".recyclerview.RecyclerViewActivity"
             android:label="@string/title_activity_recycler_view" >
         </activity>
     </application>
