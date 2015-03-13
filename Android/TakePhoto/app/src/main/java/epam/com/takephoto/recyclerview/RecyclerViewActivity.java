@@ -33,7 +33,7 @@ public class RecyclerViewActivity extends ActionBarActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 		GridLayoutManager glm = new GridLayoutManager(this, COUNT_ITEMS_IN_LINE);
 		mRecyclerView.setLayoutManager(glm);
-        mRecyclerView.setAdapter(new MyRecyclerAdapter(this, mGalleryCursor));
+        mRecyclerView.setAdapter(new MyRecyclerAdapter(this, mGalleryCursor, glm.getSpanCount()));
     }
 
     @Override
