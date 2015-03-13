@@ -7,8 +7,7 @@
     <string name="copyright">©2015 EPAM Systems</string>
     <string name="title_activity_main">Test Application</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tab1_title">Файлы</string>
-    <string name="tab2_title">Фотографии</string>
-    <string name="tab3_title">Карта</string>
+    <string name="tab1_title">Файлы/Фотографии</string>
+    <string name="tab2_title">Карта</string>
 
 </resources>
