@@ -2,6 +2,8 @@ package epam.com.takephoto;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -118,7 +120,8 @@ public class TakePhoto extends ActionBarActivity implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CAMERA_CODE && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-			photo = Util.getRoundedRectBitmap(photo, 4, 0xff005500);
+            Bitmap photoFrame = BitmapFactory.decodeResource(getResources(), R.drawable.photo_frame);
+			photo = Util.overlayBitmaps(photo, photoFrame);
             mPreview.setImageBitmap(photo);
         }
     }

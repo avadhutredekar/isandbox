@@ -2,6 +2,7 @@ package epam.com.takephoto;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -47,4 +48,21 @@ public class Util {
 			return source;
 		}
 	}
+
+
+    /**
+     * Concatenates two bitmaps
+     * @param bmp1
+     * @param bmp2
+     * @return
+     */
+    public static Bitmap overlayBitmaps(Bitmap bmp1, Bitmap bmp2) {
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bmp2,bmp1.getWidth(), bmp1.getHeight(), true);
+
+        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight(), bmp1.getConfig());
+        Canvas canvas = new Canvas(bmOverlay);
+        canvas.drawBitmap(bmp1, new Matrix(), null);
+        canvas.drawBitmap(scaledBitmap, 0, 0, null);
+        return bmOverlay;
+    }
 }
