@@ -118,6 +118,7 @@ public class TakePhoto extends ActionBarActivity implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CAMERA_CODE && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
+			photo = Util.getRoundedRectBitmap(photo, 4, 0xff005500);
             mPreview.setImageBitmap(photo);
         }
     }
