@@ -5,8 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_take_photo">TakePhoto</string>
-    <string name="first_photo_text">Application Aware Connectivity</string>
-    <string name="second_photo_text">Consumer Engagement with ABC</string>
+    <string name="first_photo_text">Text Text Text</string>
+    <string name="second_photo_text">Text Text Text</string>
     <string name="take_picture">TAKE A PICTURE</string>
     <string name="preview">PREVIEW PICTURE</string>
     <string name="back">Back</string>
