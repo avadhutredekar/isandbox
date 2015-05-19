@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MultiCloudService</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_add_yandex">Add Yandex Account</string>
+    <string name="action_add_db">Add DropBox Account</string>
+    <string name="title_activity_oauth">OAuthActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_accounts">AccountsActivity</string>
+</resources>
