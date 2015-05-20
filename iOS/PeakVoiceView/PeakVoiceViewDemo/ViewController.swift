@@ -59,7 +59,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
 				println("Not granted")
 			}
 		}
-
 	}
 
 	override func viewDidDisappear(animated: Bool) {
