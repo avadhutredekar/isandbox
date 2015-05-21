@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hkh-4S-5YO">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MobileAnalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pRG-cf-8rw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="R6Q-V6-SBV">
+                            <connections>
+                                <segue destination="AGD-D8-7zQ" kind="show" id="VLl-UI-ne6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1m7-e0-WQ6">
+                            <connections>
+                                <segue destination="2G9-sR-yax" kind="show" id="GDc-IY-fL0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189" y="475"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="fyI-nm-9NE">
+            <objects>
+                <viewController id="2G9-sR-yax" customClass="AddViewController" customModule="MobileAnalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ti9-Rs-7jy"/>
+                        <viewControllerLayoutGuide type="bottom" id="cWg-jQ-eRK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qsk-cq-Wbp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajQ-gB-XbE">
+                                <rect key="frame" x="277" y="285" width="71" height="30"/>
+                                <state key="normal" title="Add Thing">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="GSs-YY-Cv6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm3-CV-4oO">
+                                <rect key="frame" x="291" y="336" width="44" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="nas-qA-tkN"/>
+                                    <action selector="deleteThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="rgu-KV-RGY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5g-NY-Tqw">
+                                <rect key="frame" x="298" y="374" width="30" height="30"/>
+                                <state key="normal" title="Buy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="XAh-aG-d74"/>
+                                    <action selector="buyThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="YzJ-Bx-SkJ"/>
+                                    <action selector="deleteThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="Eyw-qX-d6n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89v-e1-gAr">
+                                <rect key="frame" x="256" y="412" width="114" height="30"/>
+                                <state key="normal" title="Throw exception">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="mdx-uU-ZYZ"/>
+                                    <action selector="buyThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="AbN-lP-rtm"/>
+                                    <action selector="deleteThingAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="AhX-Ci-Dac"/>
+                                    <action selector="throwExceptionAction:" destination="2G9-sR-yax" eventType="touchUpInside" id="njZ-dS-fDr"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-Iy-ASO">
+                                <rect key="frame" x="140" y="550" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="je5-am-e4D"/>
+                                    <constraint firstAttribute="width" constant="320" id="l8u-9X-t4f"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r5g-NY-Tqw" firstAttribute="centerY" secondItem="89v-e1-gAr" secondAttribute="centerY" constant="-38" id="3UD-Fk-yb9"/>
+                            <constraint firstItem="Jm3-CV-4oO" firstAttribute="centerY" secondItem="ajQ-gB-XbE" secondAttribute="centerY" constant="51" id="8Qo-il-pBA"/>
+                            <constraint firstAttribute="centerY" secondItem="ajQ-gB-XbE" secondAttribute="centerY" id="BHj-Fr-2Lt"/>
+                            <constraint firstItem="Jm3-CV-4oO" firstAttribute="centerX" secondItem="ajQ-gB-XbE" secondAttribute="centerX" id="Dml-7J-UDc"/>
+                            <constraint firstAttribute="centerX" secondItem="ajQ-gB-XbE" secondAttribute="centerX" constant="-12.5" id="HcQ-Iw-p4V"/>
+                            <constraint firstAttribute="centerX" secondItem="t4r-Iy-ASO" secondAttribute="centerX" id="LrJ-bn-t6f"/>
+                            <constraint firstItem="r5g-NY-Tqw" firstAttribute="centerX" secondItem="89v-e1-gAr" secondAttribute="centerX" id="R53-Ri-jyK"/>
+                            <constraint firstItem="cWg-jQ-eRK" firstAttribute="top" secondItem="t4r-Iy-ASO" secondAttribute="bottom" id="TL1-ML-UMp"/>
+                            <constraint firstItem="r5g-NY-Tqw" firstAttribute="centerX" secondItem="Jm3-CV-4oO" secondAttribute="centerX" id="ieS-Xy-rXF"/>
+                            <constraint firstItem="r5g-NY-Tqw" firstAttribute="top" secondItem="Jm3-CV-4oO" secondAttribute="bottom" constant="8" id="xt0-EJ-6VK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="banner" destination="t4r-Iy-ASO" id="74T-nW-WHb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ogq-XH-m8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="475"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uaB-Y9-H4b">
+            <objects>
+                <viewController id="AGD-D8-7zQ" customClass="ADViewController" customModule="MobileAnalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rMk-6D-Ik2"/>
+                        <viewControllerLayoutGuide type="bottom" id="gQ7-UI-VeA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eDo-it-cTL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="lTh-w9-blG">
+                                <rect key="frame" x="140" y="550" width="320" height="50"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AGD-D8-7zQ" id="Lnz-AL-IG9"/>
+                                </connections>
+                            </adBannerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0Q-So-nJc">
+                                <rect key="frame" x="277" y="285" width="61" height="30"/>
+                                <state key="normal" title="Show ad">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAdAction:" destination="AGD-D8-7zQ" eventType="touchUpInside" id="Pfc-OU-x4A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="c0Q-So-nJc" secondAttribute="centerY" id="4eQ-cN-UeV"/>
+                            <constraint firstItem="gQ7-UI-VeA" firstAttribute="top" secondItem="lTh-w9-blG" secondAttribute="bottom" id="BVt-A6-4gj"/>
+                            <constraint firstAttribute="centerX" secondItem="lTh-w9-blG" secondAttribute="centerX" id="UoR-D4-yde"/>
+                            <constraint firstAttribute="centerX" secondItem="c0Q-So-nJc" secondAttribute="centerX" constant="-7.5" id="gCt-Zu-9u4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="banner" destination="lTh-w9-blG" id="kEI-kB-nlQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p3q-oh-fbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="1206"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rgv-tU-0ai">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hkh-4S-5YO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JW0-EQ-zul">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vXA-Ny-PS0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qgp-Sa-YhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="475"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LyD-uf-nTl">
+            <objects>
+                <viewController id="ZUi-Mk-iAg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="npb-eI-chx"/>
+                        <viewControllerLayoutGuide type="bottom" id="aCz-NH-Pa5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IN2-aO-wsq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dma-Bw-MdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
