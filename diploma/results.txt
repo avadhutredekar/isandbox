@@ -1,0 +1,55 @@
+count points = 301
+init = 0.00216794013977 seconds
+viz = 0.0652899742126 seconds
+spt = 0.0433588027954 seconds
+spm =  0.762069940567
+floyd = 0.194141864777
+floyd optimize = 0.102437019348
+
+count points = 401
+init = 0.00232005119324 seconds
+viz = 0.115760087967 seconds
+spt = 0.0759310722351 seconds
+spm =  1.45498299599
+floyd = 0.410549879074
+floyd optimize = 0.183542013168
+
+count points = 501
+init = 0.00306105613708 seconds
+viz = 0.145774126053 seconds
+spt = 0.0947489738464 seconds
+spm =  2.47369790077
+floyd = 0.793435811996
+floyd optimize = 0.344684123993
+
+count points = 601
+init = 0.00227904319763 seconds
+viz = 0.202370882034 seconds
+spt = 0.12794303894 seconds
+spm =  8.30357789993
+floyd = 1.37833213806
+floyd optimize = 0.479121208191
+
+count points = 701
+init = 0.00274395942688 seconds
+viz = 0.36908197403 seconds
+spt = 0.197146892548 seconds
+spm =  8.52495503426
+floyd = 2.20463204384
+floyd optimize = 0.729329109192
+
+count points = 801
+init = 0.00256705284119 seconds
+viz = 0.366714000702 seconds
+spt = 0.225970029831 seconds
+spm =  0.508280992508
+floyd = 3.4051361084
+floyd optimize = 1.0818400383
+
+init = 0.00296902656555 seconds
+viz = 0.590856075287 seconds
+spt = 0.329468011856 seconds
+spm =  0.895915031433
+floyd = 4.78646707535
+floyd optimize = 1.42451381683
+

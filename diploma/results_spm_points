@@ -1,0 +1,48 @@
+dimension = 500
+count points = 301
+init = 0.00198698043823 seconds
+viz = 0.0539588928223 seconds
+spt = 0.0354509353638 seconds
+spm =  0.388601064682
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 401
+init = 0.00208282470703 seconds
+viz = 0.0875811576843 seconds
+spt = 0.0577299594879 seconds
+spm =  0.813549995422
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 501
+init = 0.00225782394409 seconds
+viz = 0.139813899994 seconds
+spt = 0.0893290042877 seconds
+spm =  1.52161717415
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 601
+init = 0.00277805328369 seconds
+viz = 0.269293069839 seconds
+spt = 0.168691158295 seconds
+spm =  4.73680901527
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 701
+init = 0.00238800048828 seconds
+viz = 0.283312082291 seconds
+spt = 0.173215150833 seconds
+spm =  5.8932299614
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 801
+init = 0.00274610519409 seconds
+viz = 0.366750955582 seconds
+spt = 0.225918054581 seconds
+spm =  8.22018003464
+cuda@cudasrv:~/NVIDIA_CUDA-7.0_Samples/idiploma$ python run.py
+dimension = 500
+count points = 901
+init = 0.00289916992188 seconds
+viz = 0.618005990982 seconds
+spt = 0.34074306488 seconds
+spm =  13.0905930996

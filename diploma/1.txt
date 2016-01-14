@@ -1,0 +1,66 @@
+enum {LEFT,  RIGHT,  BEYOND,  BEHIND, BETWEEN, ORIGIN, DESTINATION};
+//    ÑËÅÂÀ, ÑÏÐÀÂÀ, ÂÏÅÐÅÄÈ, ÏÎÇÀÄÈ, ÌÅÆÄÓ,   ÍÀ×ÀËÎ, ÊÎÍÅÖ
+
+int Point::classify(Point &p0, Point &pl)
+{
+  Point p2 = *this;
+  Point a = p1 - pO;
+  Point b = p2 - pO;
+  double sa = a. x * b.y - b.x * a.y;
+  if (sa > 0.0)
+    return LEFT;
+  if (sa < 0.0)
+    return RIGHT;
+  if ((a.x * b.x < 0.0) || (a.y * b.y < 0.0))
+    return BEHIND;
+  if (a.length() < b.length())
+    return BEYOND;
+  if (pO == p2)
+    return ORIGIN;
+  if (p1 == p2)
+    return DESTINATION;
+  return BETWEEN;
+}
+
+int Point::classify(Edge &e)
+{
+  return classify(e.org, e.dest);
+}
+
+enum { INSIDE, OUTSIDE, BOUNDARY };         // ïîëîæåíèå òî÷êè
+//     ÂÍÓÒÐÈ, ÂÍÅ,     ÍÀ ÃÐÀÍÈÖÅ
+enum { TOUCHING, CROSSING, INESSENTIAL };   // ïîëîæåíèå ðåáðà
+//     ÊÀÑÀÒÅËbÍÎÅ, ÏÅÐÅÑÅÊÀÞÙÅÅ, ÍÅÑÓÙÅÑÒÂÅÍÍÎÅ
+
+int pointInPolygon(Point &a, Polygon &p)
+{
+  int parity = 0;
+  for (int i = 0;  i < p.size(); i++, p.advance (CLOCKWISE)) { 
+    Edge e = p.edge();
+    switch (edgeType(a, e)) {
+      case TOUCHING:
+        return BOUNDARY;
+      case CROSSING:
+        parity = 1 - parity;
+    }
+  }
+  return (parity ? INSIDE : OUTSIDE);
+}
+
+int edgeType (Point &a, Edge &e)
+{
+  Point v = e.org;
+  Point w = e.dest;
+  switch (a.classify(e)) {
+    case LEFT:
+      return ((v.y<a.y)&&(a.y<=w.y)) ? CROSSING : INESSENTIAL; 
+    case RIGHT:
+      return ((w.y<a.y)&&(a.y<=v.y)) ? CROSSING : INESSENTIAL; 
+    case BETWEEN:
+    case ORIGIN:
+    case DESTINATION:
+      return TOUCHING;
+    default:
+      return INESSENTIAL;
+  }
+}
