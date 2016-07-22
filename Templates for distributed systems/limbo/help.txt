@@ -1,0 +1,3 @@
+запуск InfernoOS		emu -g1024x768 (В windows sdk common prompt) -->	wm/wm
+запуск программы		(пуск --> shell) cd /usr/User1/dev/hello_world	-->	HelloWorld hi	(hi -- аргумент)
+компиляция				limbo -g Template.b (необходимо компилировать все модули)

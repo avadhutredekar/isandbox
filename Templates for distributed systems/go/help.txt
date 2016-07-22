@@ -1,0 +1,8 @@
+запуск программы		go run main.go
+
+api xmlrpc				https://github.com/divan/gorilla-xmlrpc
+примеры на Go			https://gobyexample.com/
+команды Go				https://golang.org/cmd/go/
+формат вывода 			https://golang.org/pkg/fmt/
+формат ввода			https://golang.org/pkg/bufio/#Reader.ReadLine
+пример tcp				https://systembash.com/a-simple-go-tcp-server-and-tcp-client/

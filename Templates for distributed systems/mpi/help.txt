@@ -1,0 +1,4 @@
+1. Open java project .pom file in your ide
+2. ClientRunner - run client. ServiceRunner - run service.
+3. mpicc -std99 to compile C sources; mpirun - to run C (mpi) programm
+4. Sequence - run C programm, run Java soap service, run clients
