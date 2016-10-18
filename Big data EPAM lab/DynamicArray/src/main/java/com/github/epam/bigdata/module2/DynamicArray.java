@@ -1,6 +1,5 @@
 package com.github.epam.bigdata.module2;
 
-
 /**
  * Created by dydus on 18/10/2016.
  * Allows to store any types of elements, is based on array. It increases the capacity of array automatically.
