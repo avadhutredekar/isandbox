@@ -3,3 +3,4 @@
 Big data EPAM lab/Collections/DynamicArray/.idea
 Big data EPAM lab/Collections/ShortestWordQueue/.idea
 Big data EPAM lab/MongoDriver/.idea
+*.class
