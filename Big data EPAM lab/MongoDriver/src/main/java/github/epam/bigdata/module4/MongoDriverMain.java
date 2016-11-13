@@ -25,6 +25,12 @@ public class MongoDriverMain {
 
         Utils.increaseRatings(db);
 
+        Utils.resolveBugs(db);
+
+        Utils.hideBigDataSpec(db);
+
+        Utils.createIndexes(db);
+
         mc.close();
     }
 }

@@ -118,12 +118,39 @@ public class Utils {
                 update, new UpdateOptions().upsert(true));
     }
 
+    public static void resolveBugs(MongoDatabase db) {
+        Random rand = new Random();
+        MongoCollection collection = db.getCollection("Employees");
+
+        FindIterable<Document> iter = collection
+                .find()
+                .filter(and(eq("position", "TESTER"), not(eq("bugs", null))));
+        for (Document item : iter) {
+            Integer percentOfRemoving = abs(rand.nextInt()) % 100;
+            List<Document> bugs = (List<Document>)item.get("bugs");
+            List<Document> updatedBugs = new ArrayList<>();
+            for (Document bug : bugs) {
+                if (percentOfRemoving < abs(rand.nextInt()) % 100) {
+                    updatedBugs.add(bug);
+                }
+            }
+
+            System.out.println("Tester "+item.getString("name"));
+            System.out.println("Old bugs: " + bugs);
+            System.out.println("New bugs: " + updatedBugs);
+
+            Document update = new Document("$set", new Document().append("bugs", updatedBugs));
+            collection.updateOne(
+                    eq("_id", item.get("_id")),
+                    update, new UpdateOptions().upsert(true));
+        }
+    }
+
     public static void increaseRatings(MongoDatabase db) {
         Random rand = new Random();
         MongoCollection collection = db.getCollection("Students");
         FindIterable<Document> iter = collection.find();
         for (Document item : iter) {
-            String studyPlace = item.getString("studyPlace");
 
             // Define ability to increase rating
             int percentOfIncreasing = 0;
@@ -133,7 +160,6 @@ public class Utils {
             else
                 percentOfIncreasing += 10;
 
-
             if (item.getString("jobPlace") == null)
                 percentOfIncreasing += 30;
             else if (item.getString("jobPlace").equals("EPAM"))
@@ -142,13 +168,18 @@ public class Utils {
                 percentOfIncreasing += 10;
 
             percentOfIncreasing += 5*item.getInteger("course");
-            final int finalPercentOfIncreasing = percentOfIncreasing;
             List<Document> ratings = (List<Document>)item.get("ratings");
-            List<Document> newRatings = ratings.stream().map((i) ->
-                    finalPercentOfIncreasing < abs(rand.nextInt()) % 100 ?
-                            i :
-                            i.append("value", i.getInteger("value")+1)
-            ).collect(Collectors.toList());
+            List<Document> newRatings = new ArrayList<>();
+            for (Document rat : ratings) {
+                Document newRat = new Document().append("name", rat.get("name"));
+                Integer oldRat = rat.getInteger("value");
+                if (percentOfIncreasing >= abs(rand.nextInt()) % 100) {
+                    newRat.append("value", oldRat+1);
+                } else {
+                    newRat.append("value", oldRat);
+                }
+                newRatings.add(newRat);
+            }
 
             System.out.println("Student "+item.getString("name")+" percent of increasing " + percentOfIncreasing);
             System.out.println("Old rating: " + ratings);
@@ -159,6 +190,45 @@ public class Utils {
             collection.updateOne(
                     eq("_id", item.get("_id")),
                     update, new UpdateOptions().upsert(true));
+        }
+    }
+
+    public static void hideBigDataSpec(MongoDatabase db) {
+        MongoCollection students = db.getCollection("Students");
+        MongoCollection employees = db.getCollection("Employees");
+        FindIterable<Document> iter = students.find().filter(eq("jobPlace", null)).limit(2);
+        int amountOfNewSpec = 0;
+        for (Document item : iter) {
+            Document update = new Document("$set", new Document().append("jobPlace", "EPAM"));
+            students.updateOne(
+                    eq("_id", item.get("_id")),
+                    update, new UpdateOptions().upsert(true));
+
+            Employee newEmp = new Employee(item.getString("uuid"), item.getString("name"), item.getDate("bithday"), item.getInteger("age"), JobPosition.DEVELOPER);
+            employees.insertOne(DBAdapter.getDocumentFromEmployee(newEmp));
+            amountOfNewSpec++;
+        }
+
+        System.out.println(amountOfNewSpec + " BigData specialists were hired");
+    }
+
+    public static void createIndexes(MongoDatabase db) {
+        MongoCollection students = db.getCollection("Students");
+        students.createIndex(new Document("age", 1));
+        students.createIndex(new Document("jobPlace", 1));
+
+        MongoCollection employees = db.getCollection("Employees");
+        employees.createIndex(new Document("age", 1));
+        employees.createIndex(new Document("position", 1));
+
+        System.out.println("Indexes for Students collection");
+        for (Object index : students.listIndexes()) {
+            System.out.println(index.toString());
+        }
+
+        System.out.println("Indexes for Employees collection");
+        for (Object index : employees.listIndexes()) {
+            System.out.println(index.toString());
         }
     }
 
