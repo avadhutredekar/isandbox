@@ -122,7 +122,7 @@ func isInside(p1: Point, p: Point, p2: Point) -> Bool {
 
 public func jarvis(input: [Point]) -> [Int] {
     var result = [Int]()
-    var base = 0;
+    var base = 0
     let n = input.count
     var index = 1
     while index < n {
@@ -155,6 +155,7 @@ public func jarvis(input: [Point]) -> [Int] {
 
     return result
 }
+
 
 public func generateVector(amountOfPoint: Int, size: CGSize) -> [Point] {
     return (1...amountOfPoint).map{ _ in Point(x:

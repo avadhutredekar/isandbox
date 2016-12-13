@@ -3,7 +3,7 @@ import XCPlayground
 import PlaygroundSupport
 
 let rect = CGRect(x: 0, y: 0, width: 500, height: 500)
-let vector = generateVector(amountOfPoint: 15, size: rect.size)
+let vector = generateVector(amountOfPoint: 10, size: rect.size)
 let jarvisResult = jarvis(input: vector)
 let grahResult = graham(input: vector)
 
