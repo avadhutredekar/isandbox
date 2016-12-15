@@ -23,19 +23,14 @@ public func measure(closure: ()->Void) -> Double {
     return time / 3
 }
 
-print("Hello, World!")
 var amountOfPoint = 10000
 while amountOfPoint <= 150000 {
-    let grahamTime = measure {
+    
+    let quickTime = measure {
         let v = generateVector(amountOfPoint: amountOfPoint, size: CGSize(width: 10000, height: 10000))
-        let result = graham(input: v)
+        let result = quickHull(v)
     }
     
-    let jarvisTime = measure {
-        let v = generateVector(amountOfPoint: amountOfPoint, size: CGSize(width: 10000, height: 10000))
-        let result = jarvis(input: v)
-    }
-    
-    print("\(amountOfPoint) \(grahamTime) \(jarvisTime)")
+    print("\(amountOfPoint) \(quickTime)")
     amountOfPoint += 10000
 }

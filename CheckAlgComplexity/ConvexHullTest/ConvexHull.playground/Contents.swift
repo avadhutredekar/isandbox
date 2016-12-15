@@ -5,6 +5,7 @@ import PlaygroundSupport
 let rect = CGRect(x: 0, y: 0, width: 500, height: 500)
 let vector = generateVector(amountOfPoint: 10, size: rect.size)
 let jarvisResult = jarvis(input: vector)
+let quickResult = quickHull(vector)
 let grahResult = graham(input: vector)
 
 let view = UIView(frame: rect)
@@ -59,8 +60,11 @@ for item in vector {
 
 view.layer.addSublayer(pathLayer(
     grahResult.map{ vector[$0].cgpoint }, UIColor.red.cgColor))
+//
+//view.layer.addSublayer(pathLayer(
+//    jarvisResult.map{ vector[$0].cgpoint }, UIColor.blue.cgColor))
 
 view.layer.addSublayer(pathLayer(
-    jarvisResult.map{ vector[$0].cgpoint }, UIColor.blue.cgColor))
+    quickResult.map{ vector[$0].cgpoint }, UIColor.blue.cgColor))
 
 print("Hello, Convex Hull")

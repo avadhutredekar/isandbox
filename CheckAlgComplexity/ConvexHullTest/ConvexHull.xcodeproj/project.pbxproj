@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		271AD33E1DF4CF1000ACD096 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271AD33D1DF4CF1000ACD096 /* main.swift */; };
+		270CA3801E02E1C800EF53FD /* AlgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CA37F1E02E1C800EF53FD /* AlgTest.swift */; };
+		270CA38C1E02E21900EF53FD /* AlgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CA37F1E02E1C800EF53FD /* AlgTest.swift */; };
+		27834B071E030BB800652F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27834B061E030BB800652F3E /* main.swift */; };
+		27834B081E030BC900652F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27834B061E030BB800652F3E /* main.swift */; };
 		279572171DF4D59500504F12 /* AlgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279572161DF4D59500504F12 /* AlgTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		270CA3831E02E20100EF53FD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		271AD32C1DF4B77300ACD096 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -24,12 +36,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		270CA37F1E02E1C800EF53FD /* AlgTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlgTest.swift; path = ConvexHull.playground/Sources/AlgTest.swift; sourceTree = SOURCE_ROOT; };
+		270CA3851E02E20100EF53FD /* QuickHullTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QuickHullTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		270CA3871E02E20100EF53FD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		271AD32E1DF4B77300ACD096 /* AlgTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		271AD33D1DF4CF1000ACD096 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
+		27834B061E030BB800652F3E /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
 		279572161DF4D59500504F12 /* AlgTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlgTest.swift; path = MyPlayground.playground/Sources/AlgTest.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		270CA3821E02E20100EF53FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		271AD32B1DF4B77300ACD096 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +62,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270CA3861E02E20100EF53FD /* QuickHullTest */ = {
+			isa = PBXGroup;
+			children = (
+				270CA3871E02E20100EF53FD /* main.swift */,
+			);
+			path = QuickHullTest;
+			sourceTree = "<group>";
+		};
 		271AD3251DF4B77300ACD096 = {
 			isa = PBXGroup;
 			children = (
 				271AD3301DF4B77300ACD096 /* AlgTest */,
+				270CA3861E02E20100EF53FD /* QuickHullTest */,
 				271AD32F1DF4B77300ACD096 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				271AD32E1DF4B77300ACD096 /* AlgTest */,
+				270CA3851E02E20100EF53FD /* QuickHullTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				279572161DF4D59500504F12 /* AlgTest.swift */,
-				271AD33D1DF4CF1000ACD096 /* main.swift */,
+				270CA37F1E02E1C800EF53FD /* AlgTest.swift */,
+				27834B061E030BB800652F3E /* main.swift */,
 			);
 			path = AlgTest;
 			sourceTree = "<group>";
@@ -68,6 +101,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		270CA3841E02E20100EF53FD /* QuickHullTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270CA3891E02E20100EF53FD /* Build configuration list for PBXNativeTarget "QuickHullTest" */;
+			buildPhases = (
+				270CA3811E02E20100EF53FD /* Sources */,
+				270CA3821E02E20100EF53FD /* Frameworks */,
+				270CA3831E02E20100EF53FD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickHullTest;
+			productName = QuickHullTest;
+			productReference = 270CA3851E02E20100EF53FD /* QuickHullTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		271AD32D1DF4B77300ACD096 /* AlgTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 271AD3351DF4B77300ACD096 /* Build configuration list for PBXNativeTarget "AlgTest" */;
@@ -91,10 +141,14 @@
 		271AD3261DF4B77300ACD096 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = dydus;
 				TargetAttributes = {
+					270CA3841E02E20100EF53FD = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
 					271AD32D1DF4B77300ACD096 = {
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 0810;
@@ -102,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 271AD3291DF4B77300ACD096 /* Build configuration list for PBXProject "AlgTest" */;
+			buildConfigurationList = 271AD3291DF4B77300ACD096 /* Build configuration list for PBXProject "ConvexHull" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,23 +169,52 @@
 			projectRoot = "";
 			targets = (
 				271AD32D1DF4B77300ACD096 /* AlgTest */,
+				270CA3841E02E20100EF53FD /* QuickHullTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		270CA3811E02E20100EF53FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27834B081E030BC900652F3E /* main.swift in Sources */,
+				270CA38C1E02E21900EF53FD /* AlgTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		271AD32A1DF4B77300ACD096 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271AD33E1DF4CF1000ACD096 /* main.swift in Sources */,
+				270CA3801E02E1C800EF53FD /* AlgTest.swift in Sources */,
 				279572171DF4D59500504F12 /* AlgTest.swift in Sources */,
+				27834B071E030BB800652F3E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		270CA38A1E02E20100EF53FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		270CA38B1E02E20100EF53FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		271AD3331DF4B77300ACD096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -245,7 +328,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		271AD3291DF4B77300ACD096 /* Build configuration list for PBXProject "AlgTest" */ = {
+		270CA3891E02E20100EF53FD /* Build configuration list for PBXNativeTarget "QuickHullTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270CA38A1E02E20100EF53FD /* Debug */,
+				270CA38B1E02E20100EF53FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271AD3291DF4B77300ACD096 /* Build configuration list for PBXProject "ConvexHull" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				271AD3331DF4B77300ACD096 /* Debug */,

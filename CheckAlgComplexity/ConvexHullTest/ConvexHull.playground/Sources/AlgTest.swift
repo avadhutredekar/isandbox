@@ -162,3 +162,111 @@ public func generateVector(amountOfPoint: Int, size: CGSize) -> [Point] {
         Double(arc4random()).truncatingRemainder(dividingBy: Double(size.width)), y:
         Double(arc4random()).truncatingRemainder(dividingBy: Double(size.height)), i: 0) }
 }
+
+public struct Line {
+    var a: Double
+    var b: Double
+    var c: Double
+    
+    public init(_ f: Point, _ s: Point) {
+        a = s.y - f.y
+        b = f.x - s.x
+        c = -(a*f.x + b*f.y)
+    }
+    
+    func dist(_ p: Point) -> Double {
+        return fabs(a*p.x + b*p.y + c)/sqrt(a*a + b*b)
+    }
+    func isLeft(_ p: Point) -> Bool {
+        return a*p.x + b*p.y + c < 0
+    }
+    
+    func isRight(_ p: Point) -> Bool {
+        return a*p.x + b*p.y + c > 0
+    }
+}
+
+func GetPointsLeftByLine(_ vertex: [Point], _ setPoints: [Int], _ line: Line) -> [Int] {
+    return setPoints.filter{ line.isLeft(vertex[$0]) }
+}
+
+func quickHull(_ vertex: [Point], _ leftPos: Int, _ rightPos: Int, _ setPoints: [Int]) -> [Int] {
+    guard setPoints.count != 0 else {
+        return [rightPos]
+    }
+    let lr = Line(vertex[leftPos],vertex[rightPos])
+    // Находим точку, наиболее удаленную от прямой LR
+    
+    var topPos = setPoints[0]
+    var topLine = Line(vertex[leftPos],vertex[topPos])
+    var maxDist = lr.dist(vertex[topPos])
+    
+    var i = 1
+    while i < setPoints.count {
+        if setPoints[i] != leftPos && setPoints[i] != rightPos {
+            let curDist = lr.dist(vertex[setPoints[i]])
+            // равноудаленные точки
+            if fabs(maxDist - curDist) <= eps {
+                // но угол у новой точки больше
+                if topLine.isLeft(vertex[setPoints[i]]) {
+                    topPos = setPoints[i]
+                    topLine = Line(vertex[leftPos],vertex[topPos])
+                }
+            }
+            if (fabs(maxDist - curDist) > eps) && (maxDist < curDist) {
+                maxDist = curDist
+                topPos = setPoints[i]
+                topLine = Line(vertex[leftPos],vertex[topPos])
+            }
+        }
+        
+        i+=1
+    }
+    
+    let lt = Line(vertex[leftPos],vertex[topPos])
+    // формируем множество точек, находящихся слева от прямой LT
+    let s11 = GetPointsLeftByLine(vertex,setPoints,lt)
+    var result = quickHull(vertex,leftPos,topPos, s11)
+    
+    let tr = Line(vertex[topPos],vertex[rightPos])
+    // формируем множество точек, находящихся слева от прямой TR
+    let s12 = GetPointsLeftByLine(vertex, setPoints,tr)
+    result += quickHull(vertex, topPos, rightPos, s12)
+    
+    return result
+}
+
+public func quickHull(_ vertex: [Point]) -> [Int] {
+    guard vertex.count >= 3 else {
+        return []
+    }
+    // поиск самой левой и самой правой точки
+    var leftPos = 0
+    var rightPos = 0
+    
+    for i in [Int](1..<vertex.count) {
+        if (fabs(vertex[i].x - vertex[leftPos].x) > eps) && (vertex[i].x < vertex[leftPos].x) {
+            leftPos = i
+        } else if (fabs(vertex[rightPos].x - vertex[i].x) > eps) && (vertex[rightPos].x < vertex[i].x) {
+            rightPos = i
+        }
+    }
+    
+    let lr = Line(vertex[leftPos],vertex[rightPos])
+    var s1 = [Int]() // точки выше прямой LR
+    var s2 = [Int]() // точки ниже прямой LR
+    for i in [Int](0..<vertex.count) {
+        if (i != leftPos && i != rightPos)
+        {
+            if lr.isLeft(vertex[i]) {
+                s1.append(i)
+            } else if (lr.isRight(vertex[i])) {
+                s2.append(i)
+            }
+        }
+    }
+    var result = quickHull(vertex, leftPos, rightPos, s1)
+    result += quickHull(vertex, rightPos, leftPos, s2)
+    
+    return result
+}
